@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a class="navbar-brand" routerLink="/">Game</a>
+
+  <div class="navbar-expand">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="/" class="nav-link">Platform</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/createGame" class="nav-link">Create new game</a>
+      </li>
+    </ul>
+  </div>
+</nav>

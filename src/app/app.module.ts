@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { PlatformComponent } from './platform/platform.component';
-import { GameInfoComponent } from './games-list/game-info/game-info.component';
-import { GamesListComponent } from './games-list/games-list.component';
+import { GameInfoComponent } from './home/games-list/game-info/game-info.component';
+import { GamesListComponent } from './home/games-list/games-list.component';
 import { GameService } from './shared/game.service';
 import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { GameComponent } from './game/game.component';
+import { EmptyGameComponent } from './home/empty-game.component';
+import { NotFoundComponent } from './not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { HomeComponent } from './home/home.component';
     GamesListComponent,
     ToolbarComponent,
     HomeComponent,
+    GameComponent,
+    EmptyGameComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

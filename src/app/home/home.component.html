@@ -1,10 +1,15 @@
 <div class="row mt-3">
   <div class="col-4">
     <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-        Platform
-      </a>
-      <app-platform *ngFor="let game of games" [platform]="game.platform"></app-platform>
+      <h3>Platforms</h3>
+      <app-platform
+        *ngFor="let platform of platforms; let i = index"
+        [platform]="platform"
+        [index]="i"
+      ></app-platform>
     </div>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
   </div>
 </div>

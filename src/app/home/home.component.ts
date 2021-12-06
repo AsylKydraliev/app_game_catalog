@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Game } from '../shared/game.model';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameService } from '../shared/game.service';
 
 @Component({
@@ -8,13 +7,12 @@ import { GameService } from '../shared/game.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  games!: Game[];
+  @Input() platform!: string;
+  platforms!: string[];
+
   constructor(private gameService: GameService) {}
 
-  ngOnInit(){
-    this.games = this.gameService.getGames();
-    this.gameService.gameChange.subscribe((games: Game[]) => {
-      this.games = games;
-    });
+  ngOnInit() {
+    this.platforms = this.gameService.getPlatforms();
   }
 }

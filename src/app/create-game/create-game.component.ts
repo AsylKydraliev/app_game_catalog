@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { GameService } from '../shared/game.service';
 import { Game } from '../shared/game.model';
 
@@ -7,13 +7,21 @@ import { Game } from '../shared/game.model';
   templateUrl: './create-game.component.html',
   styleUrls: ['./create-game.component.css']
 })
-export class CreateGameComponent {
+export class CreateGameComponent implements OnInit{
+  platforms!: string[];
  @ViewChild('inputName')inputName!: ElementRef;
  @ViewChild('inputImage')inputImage!: ElementRef;
  @ViewChild('selectPlatform')select!: ElementRef;
  @ViewChild('textarea')textarea!: ElementRef;
 
   constructor(private gameService: GameService){}
+
+  ngOnInit(){
+    this.platforms = this.gameService.getPlatforms();
+    this.gameService.platformsChange.subscribe((platform: string[]) => {
+      this.platforms = platform;
+    });
+  }
 
   createGame(){
    const name = this.inputName.nativeElement.value;

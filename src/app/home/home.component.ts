@@ -14,5 +14,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.platforms = this.gameService.getPlatforms();
+    this.gameService.platformsChange.subscribe((platform: string[]) => {
+      this.platforms = platform;
+    });
   }
 }

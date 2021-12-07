@@ -1,9 +1,10 @@
-<div routerLink="game">
-  <div class="card mb-2" style="width: 15rem;">
-    <img [src]="image" class="card-img-top" alt="{{ name }}">
-    <div class="card-body">
-      <p class="card-text">{{ name }}</p>
+<h3>Games of this platform</h3>
+  <div routerLink="{{ game.name }}" *ngFor="let game of games">
+    <div class="card mb-2 text-light bg-dark" style="width: 20rem;">
+      <img [src]="game.image" class="card-img-top" alt="{{ game.name }}">
+      <div class="card-body">
+        <p class="card-text">{{ game.name }}</p>
+      </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

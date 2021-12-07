@@ -9,21 +9,18 @@ import { GameService } from '../../../shared/game.service';
   styleUrls: ['./game-info.component.css']
 })
 export class GameInfoComponent implements OnInit{
-  name!: string;
-  image!: string;
-  game!: Game;
-  gameId!: number;
+  games!: Game[];
+  platform!: string;
 
   constructor(private route: ActivatedRoute, private gameService: GameService) {}
 
   ngOnInit(){
+    this.gameService.gameChange.subscribe((game: Game[]) => {
+      this.games = game;
+    });
     this.route.params.subscribe((params: Params) => {
-      this.gameId = parseInt(params['id']);
-      this.game = this.gameService.getGame(this.gameId);
-      if(this.game) {
-        this.name = this.gameService.getGame(this.gameId).name;
-        this.image = this.gameService.getGame(this.gameId).image;
-      }
+      this.platform = params['platform'];
+      this.games = this.gameService.getGamesByPlatform(this.platform);
     })
   }
 }

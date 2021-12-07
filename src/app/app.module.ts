@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
-import { EmptyGameComponent } from './home/empty-game.component';
+import { AllGamesComponent } from './home/all-games/all-games.component';
 import { NotFoundComponent } from './not-found.component';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { NotFoundComponent } from './not-found.component';
     ToolbarComponent,
     HomeComponent,
     GameComponent,
-    EmptyGameComponent,
+    AllGamesComponent,
     NotFoundComponent
   ],
   imports: [

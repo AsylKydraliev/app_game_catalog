@@ -7,7 +7,7 @@ import { Game } from '../shared/game.model';
   templateUrl: './create-game.component.html',
   styleUrls: ['./create-game.component.css']
 })
-export class CreateGameComponent  {
+export class CreateGameComponent {
  @ViewChild('inputName')inputName!: ElementRef;
  @ViewChild('inputImage')inputImage!: ElementRef;
  @ViewChild('selectPlatform')select!: ElementRef;

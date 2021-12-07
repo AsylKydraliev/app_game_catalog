@@ -12,15 +12,17 @@ export class GameInfoComponent implements OnInit{
   name!: string;
   image!: string;
   game!: Game;
+  gameId!: number;
 
   constructor(private route: ActivatedRoute, private gameService: GameService) {}
 
   ngOnInit(){
     this.route.params.subscribe((params: Params) => {
-      const gameId = parseInt(params['id']);
+      this.gameId = parseInt(params['id']);
+      this.game = this.gameService.getGame(this.gameId);
       if(this.game) {
-        this.name = this.gameService.getGame(gameId).name;
-        this.image = this.gameService.getGame(gameId).image;
+        this.name = this.gameService.getGame(this.gameId).name;
+        this.image = this.gameService.getGame(this.gameId).image;
       }
     })
   }
